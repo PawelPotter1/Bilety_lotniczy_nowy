@@ -35,12 +35,12 @@
     </li>
     <hr />
     <ul>
-      <li *ngIf="flightData.flight.luggage.cabin">Cabin <span>15€</span></li>
+      <li *ngIf="flightData.flight.luggage.cabin">Cabin <span>€15</span></li>
       <li *ngIf="flightData.flight.luggage.checkInSmall">
-        Check-in 10kg <span>30€</span>
+        Check-in 10kg <span>€30</span>
       </li>
       <li *ngIf="flightData.flight.luggage.checkInBig">
-        Check-in 20kg <span>50€</span>
+        Check-in 20kg <span>€40</span>
       </li>
     </ul>
 
@@ -50,16 +50,16 @@
     <hr />
     <ul>
       <li *ngIf="flightData.flight.additions.priority_check_in">
-        PRIORITY CHECK-IN <span>15€</span>
+        PRIORITY CHECK-IN <span>€15</span>
       </li>
       <li *ngIf="flightData.flight.additions.priority_boarding">
-        PRIORITY BOARDING <span>20€</span>
+        PRIORITY BOARDING <span>€20</span>
       </li>
       <li *ngIf="flightData.flight.additions.carry_on_bag">
-        CARRY-ON BAG <span>10€</span>
+        CARRY-ON BAG <span>€10</span>
       </li>
       <li *ngIf="flightData.flight.additions.trolley_bag">
-        TROLLEY BAG <span>10€</span>
+        TROLLEY BAG <span>€10</span>
       </li>
     </ul>
     <li class="sum">

@@ -25,12 +25,12 @@ export class SummaryComponent implements OnInit {
   priceDisplay = this.total*this.ratesTotal
   currencyInput = 'EUR';
   exchangeRates:any
+  exchangeCurrencyRates:any
+  arrivalWeather:any;
 
   constructor(
     private APIService: APIService,
     public flightData: FlightDataService) { }
-
-    arrivalWeather:any;
 
     costOfFlight(){
       let price = this.flightData.flight.price
@@ -65,8 +65,9 @@ export class SummaryComponent implements OnInit {
 
     exchangePrice(){
      let rateInput = this.exchangeRates.conversion_rates[this.currencyInput];
-      //let rateInput = Number(this.APIService.getCurrency(this.currencyInput))
-      this.priceDisplay = this.total * this.ratesTotal * rateInput 
+     // let rateInput = this.exchangeCurrencyRates.rates[0].mid
+      this.priceDisplay = this.total * this.ratesTotal * rateInput
+      console.log(rateInput)
     }
 
   ngOnInit(): void {
@@ -77,8 +78,15 @@ export class SummaryComponent implements OnInit {
     this.APIService.getWeather(this.arrivalCity).subscribe((data)=>{
       this.arrivalWeather = data;
     })
-    this.APIService.getCurrency(this.currencyInput).subscribe((data)=>{
-      this.exchangeRates = data;
+     this.APIService.getCurrency(this.currencyInput).subscribe((data)=>{
+       this.exchangeCurrencyRates = data;
     })
   }
+
+  ngDoCheck(){
+    this.APIService.getCurrency(this.currencyInput).subscribe((data)=>{
+      this.exchangeCurrencyRates = data;
+   })
+  }
+
 }

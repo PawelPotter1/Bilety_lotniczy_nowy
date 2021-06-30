@@ -34,7 +34,18 @@ mat-card-content {
     display: inline;
     justify-content: center;
     align-items: center;
+ 
 }
+
+#kolor {
+  border: 1px solid gray; 
+  background: #F4F0DF;} 
+#kolor:hover {
+  border: 1px solid navy; 
+  background: #3891b1;} 
+#kolor:focus {
+    border: 1px solid rgb(41, 99, 80); 
+    background: #3891b1;} 
 
 .demo-table {
     width: 100%;

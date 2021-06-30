@@ -22,8 +22,11 @@
     <ul>
       <li>
         {{ distance | titlecase }} {{ class | titlecase }}
-        <span>{{ flightCost | currency }}</span>
+        <span>{{ flightCost | currency: "EUR" }}</span>
       </li>
+      <li *ngIf="flightData.flight.persons.adults">Adults <span>{{adults}}</span></li>
+      <li *ngIf="flightData.flight.persons.adults">Kids <span>{{kids}}</span></li>
+      <li *ngIf="flightData.flight.persons.adults">Seniors <span>{{seniors}}</span></li>
     </ul>
 
     <li class="sum">
@@ -59,11 +62,12 @@
       </li>
     </ul>
     <li class="sum">
-      Total price: <span>{{ total | currency: "EUR" }}</span>
+      Total price: <span>{{ total | currency: "EUR" }}</span><br>
+      Rates total: <small>{{ ratesTotal }}</small>
     </li>
   </ul>
   <div class="price-display">
-    <h1>Your total is {{ priceDisplay | currency: currencyInput }}</h1>
+    <h2>Your total is</h2><h1> {{ priceDisplay | currency: currencyInput }}</h1>
     <mat-form-field *ngIf="exchangeRates">
       <mat-select [(ngModel)]="currencyInput" name="currency">
         <mat-option (click)="exchangePrice()" value="PLN">PLN</mat-option>
@@ -73,9 +77,3 @@
     </mat-form-field>
   </div>
 </section>
-
-
-<!-- <div class="container">
-  <app-thanks></app-thanks>
-  <app-ticket></app-ticket>
-</div> -->

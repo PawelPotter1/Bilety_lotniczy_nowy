@@ -16,9 +16,12 @@ export class SummaryComponent implements OnInit {
   luggageCost= this.costOfLaggage()
   additionsCost = this.costOfAdds()
   total = this.calculateTotal()
+  adults =  this.flightData.flight.persons.adults
+  kids = this.flightData.flight.persons.kids
+  seniors = this.flightData.flight.persons.seniors
   ratesForKids = 0.5
   ratesForSeniors = 0.8
-  ratesTotal = this.flightData.flight.persons.adults+this.flightData.flight.persons.kids*this.ratesForKids+this.flightData.flight.persons.seniors*this.ratesForSeniors
+  ratesTotal = Number(this.flightData.flight.persons.adults)+Number(this.flightData.flight.persons.kids*0.5)+Number(this.flightData.flight.persons.seniors*0.8)
   priceDisplay = this.total*this.ratesTotal
   currencyInput = 'EUR';
   exchangeRates:any
@@ -61,7 +64,8 @@ export class SummaryComponent implements OnInit {
     }
 
     exchangePrice(){
-      let rateInput = this.exchangeRates.conversion_rates[this.currencyInput];
+     let rateInput = this.exchangeRates.conversion_rates[this.currencyInput];
+      //let rateInput = Number(this.APIService.getCurrency(this.currencyInput))
       this.priceDisplay = this.total * this.ratesTotal * rateInput 
     }
 
@@ -72,6 +76,9 @@ export class SummaryComponent implements OnInit {
 
     this.APIService.getWeather(this.arrivalCity).subscribe((data)=>{
       this.arrivalWeather = data;
+    })
+    this.APIService.getCurrency(this.currencyInput).subscribe((data)=>{
+      this.exchangeRates = data;
     })
   }
 }

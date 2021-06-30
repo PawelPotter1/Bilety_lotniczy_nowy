@@ -6,7 +6,7 @@
 </section>
     <div class="flightlist">
     <!-- <mat-card class="row" *ngFor="let flight of flights" (click)="chooseFlight(flight)"> -->
-    <mat-card class="row" *ngFor="let flight of flights" (click)="getFlight(flight)">
+    <mat-card id="kolor" class="row" *ngFor="let flight of flights" (click)="getFlight(flight)">
       <mat-card-content class="col"> 
         <mat-label class="left_col">
             <img mat-card-sm-image [src]="flight.logo">

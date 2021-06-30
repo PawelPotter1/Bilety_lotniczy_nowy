@@ -1,0 +1,81 @@
+<section class="thanks">
+  <h1>Summary</h1>
+  <div class="weather" *ngIf="arrivalWeather">
+    <h2>
+      The current weather in {{ arrivalCity }} is
+      {{ arrivalWeather.main.temp | number: "1.0-1" }}&deg;C
+    </h2>
+    <img
+      src="http://openweathermap.org/img/wn/{{
+        arrivalWeather?.weather[0].icon
+      }}@2x.png"
+      alt="Weather Icon"
+    />
+  </div>
+</section>
+<section class="total">
+  <ul class="main-list">
+    <li class="sum">
+      Flight: <span>{{ flightCost | currency: "EUR" }}</span>
+    </li>
+    <hr />
+    <ul>
+      <li>
+        {{ distance | titlecase }} {{ class | titlecase }}
+        <span>{{ flightCost | currency }}</span>
+      </li>
+    </ul>
+
+    <li class="sum">
+      Luggage: <span>{{ luggageCost | currency: "EUR" }}</span>
+    </li>
+    <hr />
+    <ul>
+      <li *ngIf="flightData.flight.luggage.cabin">Cabin <span>15</span></li>
+      <li *ngIf="flightData.flight.luggage.checkInSmall">
+        Check-in 10kg <span>30</span>
+      </li>
+      <li *ngIf="flightData.flight.luggage.checkInBig">
+        Check-in 20kg <span>50</span>
+      </li>
+    </ul>
+
+    <li class="sum">
+      Additions: <span>{{ additionsCost | currency: "EUR" }}</span>
+    </li>
+    <hr />
+    <ul>
+      <li *ngIf="flightData.flight.additions.priority_check_in">
+        PRIORITY CHECK-IN <span>15</span>
+      </li>
+      <li *ngIf="flightData.flight.additions.priority_boarding">
+        PRIORITY BOARDING <span>20</span>
+      </li>
+      <li *ngIf="flightData.flight.additions.carry_on_bag">
+        CARRY-ON BAG <span>10</span>
+      </li>
+      <li *ngIf="flightData.flight.additions.trolley_bag">
+        TROLLEY BAG <span>10</span>
+      </li>
+    </ul>
+    <li class="sum">
+      Total price: <span>{{ total | currency: "EUR" }}</span>
+    </li>
+  </ul>
+  <div class="price-display">
+    <h1>Your total is {{ priceDisplay | currency: currencyInput }}</h1>
+    <mat-form-field *ngIf="exchangeRates">
+      <mat-select [(ngModel)]="currencyInput" name="currency">
+        <mat-option (click)="exchangePrice()" value="PLN">PLN</mat-option>
+        <mat-option (click)="exchangePrice()" value="USD">USD</mat-option>
+        <mat-option (click)="exchangePrice()" value="EUR">EUR</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+</section>
+
+
+<!-- <div class="container">
+  <app-thanks></app-thanks>
+  <app-ticket></app-ticket>
+</div> -->

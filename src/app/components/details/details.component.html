@@ -1,0 +1,110 @@
+<mat-card>
+  <h1>Choose option</h1>
+  <div class="col">
+    <h1></h1>
+    <h3>
+      <mat-icon>airline_seat_recline_extra</mat-icon>
+      <span *ngIf="!seats.length">Select seats.</span>
+      <span *ngIf="seats.length">Selected seats:</span>
+    </h3>
+    <section class="chipsSection">
+      <p
+        [ngClass]="seats.length == numOfTickets ? 'success' : 'error'"
+        *ngIf="displayError"
+      >
+        You have selected {{ seats.length }} out of {{ numOfTickets }}
+        {{ ticketType }} seats.
+      </p>
+      <mat-chip-list>
+        <mat-chip (click)="removeSeat($event)" *ngFor="let seat of seats">
+          {{ seat }}</mat-chip
+        >
+      </mat-chip-list>
+    </section>
+    <button (click)="checkNumOfSeats()" mat-raised-button color="primary">
+      Confirm
+    </button>
+  </div>
+  <hr />
+  <div class="col">
+    <h3><mat-icon>luggage</mat-icon>Select luggage:</h3>
+    <section>
+      <p>
+        <img src="/assets/osobisty.png">
+        <mat-checkbox
+          [(ngModel)]="flightData.flight.luggage.personal"
+          color="primary"
+          >Personal Bag</mat-checkbox>
+      </p>
+      <p>
+        <img src="/assets/podreczny.png">
+        <mat-checkbox
+          [(ngModel)]="flightData.flight.luggage.cabin"
+          color="primary"
+          >Cabin Bag (+ 15€)</mat-checkbox>
+      </p>
+      <p>
+        <img src="/assets/maly_rejestrowany.png">
+        <mat-checkbox
+          [(ngModel)]="flightData.flight.luggage.checkInSmall"
+          color="primary"
+          >10kg Check-in Bag (+ 20€)</mat-checkbox>
+      </p>
+      <p>
+        <img src="/assets/duzy_rejestrowany.png">
+        <mat-checkbox
+          [(ngModel)]="flightData.flight.luggage.checkInBig"
+          color="primary"
+          >20kg Check-in Bag (+ 40€)</mat-checkbox>
+      </p>
+    </section>
+  </div>
+  <hr />
+  <div class="col">
+    <h1></h1>
+    <h3><mat-icon>grade</mat-icon>Comfort your flight</h3>
+    <section>
+      <section>
+        <img src="assets/check-in-desk.png">
+        <mat-checkbox
+          aria-hidden="true"
+          color="primary"
+          [(ngModel)]="flightData.flight.additions.priority_check_in"
+          >PRIORITY CHECK-IN (+ 15€)</mat-checkbox>
+          <p><small> check-in desk to drop your luggage faster</small></p>
+      </section>
+      <section>
+        <img src="assets/priority-boarding.png">
+        <mat-checkbox
+          aria-hidden="true"
+          color="primary"
+          [(ngModel)]="flightData.flight.additions.priority_boarding"
+          >PRIORITY BOARDING (+ 20€)</mat-checkbox>
+          <p><small>be the first onboard</small></p>
+      </section>
+      <section>
+        <img src="assets/backpack.png">
+        <mat-checkbox
+          aria-hidden="true"
+          color="primary"
+          [(ngModel)]="flightData.flight.additions.carry_on_bag"
+          >CARRY-ON BAG (+ 10€)</mat-checkbox>
+          <p><small>40 x 30 x 20 cm
+            e.g.: women purse, backpack, laptop bag
+            (under the seat)</small></p>
+          </section>
+      <section>
+        <img src="assets/cabin-baggage.png">
+        <mat-checkbox
+          aria-hidden="true"
+          color="primary"
+          [(ngModel)]="flightData.flight.additions.trolley_bag"
+          >TROLLEY BAG (+ 10€)</mat-checkbox>
+          <p><small><span style="color: red;">MAX 10 KG</span>
+            55 x 40 x 23</small></p>
+          </section>
+    </section>
+  </div>
+
+  
+</mat-card>

@@ -1,0 +1,15 @@
+<div class="container">
+    <mat-tab-group animationDuration="1500ms" mat-align-tabs="center">
+      <div *ngFor="let items of data">
+      <mat-tab label="{{items.name}}">
+        <div class="foto">
+          <img src="{{items.picure}}" alt="foto of " />
+          <h1>
+            <div (click)="toCountryDetails(items)"> {{ items.name}} </div>
+          </h1>
+        </div>
+      </mat-tab>
+    </div>
+    </mat-tab-group>
+</div>
+

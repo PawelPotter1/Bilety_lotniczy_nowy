@@ -1,0 +1,49 @@
+.container {
+  width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  font-size: 1.5rem;
+}
+
+.weather {
+  display: flex;
+  align-items: baseline;
+  margin: 0 0 0 4rem;
+  color: white;
+  h1,h3 {
+    margin: 0;
+    padding-top: 0px;
+    margin-top: 0.1em;
+    font-size: 0.8rem;
+  }
+  img {
+    align-self: center;
+  }
+}
+
+.login {
+  margin-left: 20px;
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+  &:hover {
+    color: #fffa;
+  }
+  span {
+    margin-right: 2rem;
+  }
+}
+mat-icon {
+  position: absolute;
+  top: 20%;
+  padding: 0 8px;
+}
+
+@media (max-width: 400px) {
+  .container {
+    font-size: 1em;
+  }
+}
+

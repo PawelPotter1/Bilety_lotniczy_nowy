@@ -1,0 +1,40 @@
+mat-card {
+  margin: 40px 0;
+  h1 {
+    font-size: 2rem;
+    font-weight: 500;
+  }
+  h3 {
+    display: inline-block;
+    margin-left: 30px;
+    position: relative;
+  }
+
+  mat-icon {
+    font-size: 2em;
+    color: #3f51b5;
+    position: absolute;
+    left: -35px;
+    top: -4px;
+  }
+  mat-checkbox {
+    padding-left: 1.5em;
+  }
+  mat-chip {
+    cursor: pointer;
+  }
+
+  .error {
+    color: red;
+  }
+  .success {
+    color: green;
+  }
+  button {
+    padding: 0 40px;
+    margin: 2em 0 0.5em 2em;
+  }
+  .chipsSection {
+    height: 2em;
+  }
+}

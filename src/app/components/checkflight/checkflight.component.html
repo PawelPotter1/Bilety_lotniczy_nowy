@@ -1,0 +1,36 @@
+<div class="row left_col">
+    <mat-card>
+        <h1>Selected flight parameters:</h1>
+        <h2>From: <mat-icon>flight_takeoff</mat-icon>
+        <strong>{{flightDataService.flight.departure.code}} - {{flightDataService.flight.departure.city}}</strong>
+        <span> To:<mat-icon>flight_land</mat-icon> </span>
+        <strong>{{flightDataService.flight.arrival.code}} - {{flightDataService.flight.arrival.city}}</strong></h2>
+        <h3>Departing date:<mat-icon>timelapse</mat-icon>
+        <strong>{{flightDataService.flight.date | date: "dd.MM.yyyy"}}</strong>
+        <span *ngIf="!flightDataService.flight.oneway"> Returning date<mat-icon>date_range</mat-icon></span>
+        <strong>{{flightDataService.flight.returningdate | date: "dd.MM.yyyy"}}</strong></h3>
+        <h3>Tickets<mat-icon>account_circle</mat-icon>
+        <strong>{{flightDataService.flight.tickets}}</strong><span>...</span>
+        Distance<mat-icon>show_chart</mat-icon>
+        <strong>{{flightDataService.flight.distance}}</strong><span>...</span>
+        Class<mat-icon>account_balance_wallet</mat-icon>
+        <strong>{{flightDataService.flight.class}}</strong></h3>
+    </mat-card>
+    <mat-card> 
+        <h1>Departing flight</h1>
+    <p>
+        <strong style="font-size: 1.2rem;">Price: {{flightDataService.flight.price | currency: 'EUR'}}</strong><br>
+        <strong style="font-size: 1.2rem;">Airplane model: {{flightDataService.flight.airplane}}</strong>
+      </p>
+    </mat-card>
+    <mat-card > 
+        <span *ngIf="!flightDataService.flight.oneway">
+        <h1>Returning flight</h1>
+    <p>
+        Price: <strong> {{flightDataService.flight.returnflight.price | currency: 'EUR'}}</strong><br>
+        Airplane model: <strong> {{flightDataService.flight.returnflight.airplane}}</strong>
+      </p>
+    </span>
+    </mat-card>
+      <button routerLink="/seating" mat-raised-button color="primary"> To details</button><br>
+    </div>

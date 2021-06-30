@@ -1,0 +1,28 @@
+
+
+   <div class="container">
+<section>
+    <app-checkflight></app-checkflight>
+</section>
+    <div class="flightlist">
+    <!-- <mat-card class="row" *ngFor="let flight of flights" (click)="chooseFlight(flight)"> -->
+    <mat-card class="row" *ngFor="let flight of flights" (click)="getFlight(flight)">
+      <mat-card-content class="col"> 
+        <mat-label class="left_col">
+            <img mat-card-sm-image [src]="flight.logo">
+          </mat-label>
+          <mat-label class="right_col">
+                <strong>{{ flight.departure }}</strong> - <strong>{{ flight.arriving }}</strong>
+              <span color="tertiary"> ({{ flight.totaltime }})  ({{ flight.steps }})</span>
+              <span color="primary"><strong>  {{ flight.from }}</strong> 
+                <mat-icon name="airplane"></mat-icon> <strong>  {{ flight.to }}</strong></span>
+          </mat-label>
+          <mat-label >
+              <span style="font-size: 1.2rem; text-align: left;">  {{ flight.price | currency:'EUR':'symbol':'2.0' }}</span>
+              <!-- <span color="primary">{{ flight.way }}</span> --><br>
+            <span color="secondary" class="fw700">Free Cancellation</span> • {{ flight.class }} | {{ flight.airplane }}
+          </mat-label>     
+      </mat-card-content>
+    </mat-card>
+    </div>
+</div>

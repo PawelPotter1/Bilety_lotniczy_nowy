@@ -1,0 +1,72 @@
+.out {
+  background: url("https://media.architecturaldigest.com/photos/575aebc84640d9b60ddc6e2f/master/w_1600%2Cc_limit/HAIA%2520(15).jpg");
+  height: 100%;
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.container {
+  background: whitesmoke;
+  color: black;
+  margin: 0 16px;
+  opacity: 0.8;
+  max-width: 1200px;
+  width: 40%;
+  padding: 1 10px;
+  border: 2px solid lightslategray;
+  border-radius: 3px;
+}
+
+.date1 {
+  padding-top: 1em;
+  font-size: 1.2em;
+  margin: 0,0,0,3em;
+  width: 100%;
+}
+
+.date2 {
+  padding-top: 1em;
+  font-size: 1.2em;
+  width: calc(100% / 2);
+}
+
+.date3 {
+  padding-top: 1em;
+  font-size: 1.2em;
+  width: calc(100% / 3);
+}
+
+form {
+  button {
+    background-color: lightsteelblue;
+    font-size: 1.3em;
+    text-align: center;
+    font-weight: 400;
+    color: blue;
+    border-radius: 0;
+    border-bottom: 1px solid gray;
+    border-radius: 8px;
+    width: 33.33%;
+    padding: 0;
+    top: 1.5px;
+  }
+}
+@media (max-width: 800px) {
+  h1 {
+    font-size: 3em;
+  }
+}
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2em;
+  }
+  .mat-form-field,
+  form button {
+    width: 100%;
+  }
+  button {
+    margin-top: 1em;
+  }
+}

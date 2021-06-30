@@ -1,0 +1,134 @@
+<!-- <app-hero-img></app-hero-img> -->
+<div class=out>
+<div class="container">
+  <h1 style="text-align: center;">Fly Search:</h1>
+  
+  <form #flightForm="ngForm">
+    <mat-form-field class="date2">
+      <mat-label>Departure</mat-label>
+      <mat-select
+        [(ngModel)]="departure"
+        color="primary"
+        name="departure"
+        required
+        cy="departure"
+        ><div *ngFor="let airport of airports">
+          <mat-option [value]="airport" *ngIf="!(airport === arrival)">
+            {{ airport.city }}
+          </mat-option>
+        </div>
+      </mat-select>
+      <mat-error *ngIf="control.hasError('required')"
+        >Please choose a city!</mat-error
+      >
+    </mat-form-field>
+    <mat-form-field class="date2">
+      <mat-label>Arrival</mat-label>
+      <mat-select [(ngModel)]="arrival" color="primary" name="arrival" required>
+        <div *ngFor="let airport of airports">
+          <mat-option *ngIf="!(airport === departure)" [value]="airport">
+            {{ airport.city }}
+          </mat-option>
+        </div>
+      </mat-select>
+      <mat-error *ngIf="control.hasError('required')"
+        >Please choose a city!</mat-error
+      >
+    </mat-form-field>
+      <div class="date1">
+    <mat-checkbox name="oneway" [(ngModel)]="oneway" labelPosition="before">One Way</mat-checkbox>
+      </div>
+    <mat-form-field class="date2">
+      <mat-label>Departing date</mat-label>
+      <input
+        [(ngModel)]="date"
+        matInput
+        [matDatepicker]="picker"
+        name="departuredate"
+        required
+        min="{{ today }}"
+      />
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+      <mat-error *ngIf="control.hasError('required')"
+        >Please choose a departuring date!</mat-error
+      >
+    </mat-form-field>
+    <mat-form-field  class="date2" *ngIf="!oneway">
+      <mat-label >Returning date</mat-label>
+      <input 
+        [(ngModel)]="returningdate"
+        matInput
+        [matDatepicker]="picker"
+        name="returndate"
+        min="{{ today }}"
+      />
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+      <mat-error *ngIf="control.hasError('required')"
+        >Please choose a returningdate date!</mat-error
+      >
+    </mat-form-field>
+<div>
+    <mat-form-field class="date3">
+      <mat-label>Adults tickets</mat-label>
+      <mat-select [(ngModel)]="tickets.adults" color="primary" name="tickets" required>
+        <mat-option value="1">1</mat-option>
+        <mat-option value="2">2</mat-option>
+        <mat-option value="3">3</mat-option>
+        <mat-option value="4">4</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="date3">
+      <mat-label>Children tickets</mat-label>
+      <mat-select [(ngModel)]="tickets.kids" color="primary" name="tickets">
+        <mat-option value="0">0</mat-option>
+        <mat-option value="1">1</mat-option>
+        <mat-option value="2">2</mat-option>
+        <mat-option value="3">3</mat-option>
+        <mat-option value="4">4</mat-option>
+      </mat-select>
+    </mat-form-field>
+    
+    <mat-form-field class="date3">
+      <mat-label>Senior tickets</mat-label>
+      <mat-select [(ngModel)]="tickets.seniors" color="primary" name="tickets">
+        <mat-option value="0">0</mat-option>
+        <mat-option value="1">1</mat-option>
+        <mat-option value="2">2</mat-option>
+        <mat-option value="3">3</mat-option>
+        <mat-option value="4">4</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+    <mat-form-field class="date3">
+      <mat-label>Select a class</mat-label>
+      <mat-select [(ngModel)]="class" color="primary" name="class" required>
+        <mat-option value="economy"> Economy </mat-option>
+        <mat-option value="premiumeconomy"> Premium Economy </mat-option>
+        <mat-option value="bussines"> Bussines </mat-option>
+        <mat-option value="firstclass"> First Class </mat-option>
+      </mat-select>
+      <mat-error *ngIf="control.hasError('required')"
+        >Please choose a class!</mat-error
+      >
+    </mat-form-field>
+    <!-- <mat-form-field class="date3">
+      <mat-label></mat-label>
+      <mat-select [(ngModel)]="class">
+      </mat-select>
+    </mat-form-field> -->
+      <button
+      type="submit"
+      (click)="flightForm.valid ? isUserLoggedIn() : ''"
+      color="primary"
+      mat-icon-button>
+      Search
+    </button>
+
+  </form>
+</div>
+</div>
+<app-recomented-countries></app-recomented-countries>
+<app-login></app-login> 

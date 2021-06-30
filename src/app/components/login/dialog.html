@@ -1,0 +1,67 @@
+<div>
+  <p>Welcome please log-in.</p>
+</div>
+<div mat-dialog-content>
+  <form #userForm="ngForm" id="userForm">
+
+    <mat-form-field>
+      <mat-label>Enter your E-mail</mat-label>
+      <input
+        [(ngModel)]="emailInput"
+        matInput
+        type="email"
+        name="email"
+        cy="email"
+        required
+        email
+      />
+      <button mat-icon-button matSuffix tabindex="-1">
+        <mat-icon>email</mat-icon>
+      </button>
+      <mat-error *ngIf="control.hasError('required')"
+        >Please enter a valid email!</mat-error
+      >
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Enter your password</mat-label>
+      <input
+        [(ngModel)]="passwordInput"
+        matInput
+        [type]="hide ? 'password' : 'text'"
+        name="password"
+        required
+        cy="password"
+        minlength="6"
+        maxlength="16"
+      />
+      <button
+        mat-icon-button
+        matSuffix
+        (click)="hide = !hide"
+        [attr.aria-label]="'Hide password'"
+        [attr.aria-pressed]="hide"
+      >
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+      <mat-error *ngIf="control.hasError('required')"
+        >Please enter a valid password!</mat-error
+      >
+    </mat-form-field>
+
+  </form>
+
+  <p class="alert" *ngIf="wrongPassword">Invalid email or password!</p>
+
+</div>
+<div mat-dialog-actions>
+  <button
+    mat-raised-button
+    color="primary"
+    (click)="logIn()"
+    type="submit"
+    form="userForm"
+  >
+    Log-in
+  </button>
+</div>

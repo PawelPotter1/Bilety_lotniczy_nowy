@@ -1,0 +1,57 @@
+
+
+.infos{
+  display: flex;
+  width: 100vw;
+  justify-content: space-evenly;
+}
+
+.columns {
+  width: 25%;
+}
+
+li{
+  list-style-type: none;
+}
+
+.footer{
+  position: absolute;
+  color: white;
+font-size: 1.1rem;
+  background: url("https://th.bing.com/th/id/Ra0127ecae90749ab75e7d8b6d50e47d3?rik=hiOKFLzWKyQvcQ&riu=http%3a%2f%2fwww.petkus.com%2fdocuments%2f10194%2f619183%2fPETKUS_worldwide_1000x500px.jpg%2f8117ef68-bf93-488f-9c39-0c5f6cd3b1d6%3ft%3d1607013201000&ehk=4qdVmihiM3IxKE0EUvhbMkgku1qYd4sZjc6Nc%2bIk1w8%3d&risl=&pid=ImgRaw");
+  background-color: blue;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 25vh;
+}
+
+.socialmedia{
+  text-align: center;
+  margin: 10px 0;
+}
+
+.socialmedia img{
+  margin: 0 40px;
+}
+
+.copyright{
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  li {
+      display: none;
+  }
+  .columns p{
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 500px) {
+   ul {
+    display: none;
+  }
+}

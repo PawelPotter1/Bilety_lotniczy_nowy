@@ -1,0 +1,145 @@
+<div class="container">
+  
+  <section>
+    <app-details (toggleSeatEvent)="toggleSeat($event)"></app-details>
+  </section>
+  <div class="seats">
+    <h1 style="text-align: center;"><strong>{{flightData.flight.airplane}}</strong></h1>
+    <div *ngFor="let row of numOfFirstClassRows; index as i" class="row">
+      <button
+        mat-button
+        (click)="isFirstClass ? toggleSeat($event) : ''"
+        id="F{{ i + 1 }}A"
+        class="seat firstclass"
+      >
+        F{{ i + 1 }}A
+      </button>
+      <button
+        mat-button
+        (click)="isFirstClass ? toggleSeat($event) : ''"
+        id="F{{ i + 1 }}B"
+        class="seat firstclass"
+      >
+        F{{ i + 1 }}B
+      </button>
+      <button
+        mat-button
+        (click)="isFirstClass ? toggleSeat($event) : ''"
+        id="F{{ i + 1 }}C"
+        class="seat firstclass"
+      >
+        F{{ i + 1 }}C
+      </button>
+      <button
+        mat-button
+        (click)="isFirstClass ? toggleSeat($event) : ''"
+        id="F{{ i + 1 }}D"
+        class="seat firstclass"
+      >
+        F{{ i + 1 }}D
+      </button>
+    </div>
+    <div *ngFor="let row of numOfBussinesRows; index as i" class="row">
+      <button
+        mat-button
+        (click)="isBussines ? toggleSeat($event) : ''"
+        id="B{{ i + 1 }}A"
+        class="seat bussines"
+      >
+        B{{ i + 1 }}A
+      </button>
+      <button
+        mat-button
+        (click)="isBussines ? toggleSeat($event) : ''"
+        id="B{{ i + 1 }}B"
+        class="seat bussines"
+      >
+        B{{ i + 1 }}B
+      </button>
+      <button
+        mat-button
+        (click)="isBussines ? toggleSeat($event) : ''"
+        id="B{{ i + 1 }}C"
+        class="seat bussines"
+      >
+        B{{ i + 1 }}C
+      </button>
+      <button
+        mat-button
+        (click)="isBussines ? toggleSeat($event) : ''"
+        id="B{{ i + 1 }}D"
+        class="seat bussines"
+      >
+        B{{ i + 1 }}D
+      </button>
+    </div>
+    <div *ngFor="let row of numOfPremiumRows; index as i" class="row">
+      <button
+        mat-button
+        (click)="isPremium ? toggleSeat($event) : ''"
+        id="P{{ i + 1 }}A"
+        class="seat premium"
+      >
+        P{{ i + 1 }}A
+      </button>
+      <button
+        mat-button
+        (click)="isPremium ? toggleSeat($event) : ''"
+        id="P{{ i + 1 }}B"
+        class="seat premium"
+      >
+        P{{ i + 1 }}B
+      </button>
+      <button
+        mat-button
+        (click)="isPremium ? toggleSeat($event) : ''"
+        id="P{{ i + 1 }}C"
+        class="seat premium"
+      >
+        P{{ i + 1 }}C
+      </button>
+      <button
+        mat-button
+        (click)="isPremium ? toggleSeat($event) : ''"
+        id="P{{ i + 1 }}D"
+        class="seat premium"
+      >
+        P{{ i + 1 }}D
+      </button>
+    </div>
+    <div *ngFor="let row of numOfRows; index as i" class="row">
+      <button
+        mat-button
+        (click)="isPremium ? '' : toggleSeat($event)"
+        id="{{ i + 1 }}A"
+        class="seat"
+      >
+        {{ i + 1 }}A
+      </button>
+      <button
+        mat-button
+        (click)="isPremium ? '' : toggleSeat($event)"
+        id="{{ i + 1 }}B"
+        class="seat"
+      >
+        {{ i + 1 }}B
+      </button>
+      <button
+        mat-button
+        (click)="isPremium ? '' : toggleSeat($event)"
+        id="{{ i + 1 }}C"
+        class="seat"
+      >
+        {{ i + 1 }}C
+      </button>
+      <button
+        mat-button
+        (click)="isPremium ? '' : toggleSeat($event)"
+        id="{{ i + 1 }}D"
+        class="seat"
+      >
+        {{ i + 1 }}D
+      </button>
+    </div>
+  </div>
+</div>

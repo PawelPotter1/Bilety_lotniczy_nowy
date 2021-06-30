@@ -66,7 +66,9 @@ export class FlightlistComponent implements OnInit {
     this.flightDataService.flight.airplane=flight.airplane
     this.flightDataService.flight.flight.id = flight.id
     this.flightDataService.flight.flight.name = flight.name
-    this.flightDataService.flight.flight.deptime = flight.departing
+    this.flightDataService.flight.flight.deptcode = flight.departureCode
+    this.flightDataService.flight.flight.arrcode = flight.arrivingCode
+    this.flightDataService.flight.flight.deptime = flight.departure
     this.flightDataService.flight.flight.arrtime = flight.arriving
     this.flightDataService.flight.flight.totaltime = flight.totaltime
     this.flightDataService.flight.flight.steps = flight.steps
@@ -79,6 +81,8 @@ export class FlightlistComponent implements OnInit {
     this.flightDataService.flight.returnflight.airplane=flight.airplane
     this.flightDataService.flight.returnflight.id = flight.id
     this.flightDataService.flight.returnflight.name = flight.name
+    this.flightDataService.flight.returnflight.deptcode = flight.departureCode
+    this.flightDataService.flight.returnflight.arrcode = flight.arrivingCode
     this.flightDataService.flight.returnflight.deptime = flight.departing
     this.flightDataService.flight.returnflight.arrtime = flight.arriving
     this.flightDataService.flight.returnflight.totaltime = flight.totaltime

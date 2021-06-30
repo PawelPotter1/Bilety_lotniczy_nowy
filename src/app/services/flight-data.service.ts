@@ -10,8 +10,8 @@ export class FlightDataService {
   flight = {
     departure: {code: '', city:'', country: '', region: ''},
     arrival: {code: '', city:'', country: '', region: ''},
-    flight: {id: 0, name: '', deptime: '', arrtime: '', totaltime: '', steps: '',class:'', logo:''},
-    returnflight: {price: 0, airplane: '',id: 0, name: '', deptime: '', arrtime: '', totaltime: '', steps: '',class:'', logo:''},
+    flight: {id: 0, name: '', deptcode:'',arrcode:'',deptime: '', arrtime: '', totaltime: '', steps: '',class:'', logo:''},
+    returnflight: {price: 0, airplane: '',id: 0, name: '', deptcode:'',arrcode:'', deptime: '', arrtime: '', totaltime: '', steps: '',class:'', logo:''},
     oneway: true,
     date: '',
     returningdate: '',

@@ -18,10 +18,11 @@
     </mat-card>
     <mat-card> 
         <h1>Departing flight</h1>
-    <p>
+    <p> Airline: {{flightDataService.flight.flight.name}}<strong>  </strong>From:<strong>{{flightDataService.flight.flight.deptcode}}</strong><br>
         <strong style="font-size: 1.2rem;">Price: {{flightDataService.flight.price | currency: 'EUR'}}</strong><br>
-        <strong style="font-size: 1.2rem;">Airplane model: {{flightDataService.flight.airplane}}</strong>
-      </p>
+        <strong style="font-size: 1.2rem;">Airplane model: {{flightDataService.flight.airplane}}</strong><br>
+        Start flight: <strong>{{flightDataService.flight.flight.deptime}} </strong> to: <strong>{{flightDataService.flight.flight.arrtime}} </strong>
+        </p>
     </mat-card>
     <mat-card > 
         <span *ngIf="!flightDataService.flight.oneway">

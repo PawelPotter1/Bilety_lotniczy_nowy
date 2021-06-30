@@ -83,10 +83,10 @@ export class SummaryComponent implements OnInit {
     })
   }
 
-  ngDoCheck(){
-    this.APIService.getCurrency(this.currencyInput).subscribe((data)=>{
-      this.exchangeCurrencyRates = data;
-   })
-  }
+  // ngDoCheck(){
+  //   this.APIService.getCurrency(this.currencyInput).subscribe((data)=>{
+  //     this.exchangeCurrencyRates = data;
+  //  })
+  // }
 
 }

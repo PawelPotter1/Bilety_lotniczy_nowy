@@ -108,9 +108,27 @@ export class FlightlistComponent implements OnInit {
     return this.flights;
   }
 
-  getItem(id: any) {
+  // getItem(id: any) {
+  //   for (var i = 0; i < this.flights.length; i++) {
+  //     if (this.flights[i].id === parseInt(id)) {
+  //       return this.flights[i];
+  //     }
+  //   }
+  //   return null;
+  // }
+
+  getDepartureCode() {
     for (var i = 0; i < this.flights.length; i++) {
-      if (this.flights[i].id === parseInt(id)) {
+      if (this.flights[i].code === this.flightDataService.flight.flight.deptcode) {
+        return this.flights[i];
+      }
+    }
+    return null;
+  }
+
+  getArrivalCode() {
+    for (var i = 0; i < this.flights.length; i++) {
+      if (this.flights[i].code === this.flightDataService.flight.flight.arrcode) {
         return this.flights[i];
       }
     }

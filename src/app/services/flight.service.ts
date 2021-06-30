@@ -1,5 +1,6 @@
 import {Injectable} from "@angular/core";
 import {FLIGHTS} from "../models/mock-flights";
+import { FlightDataService } from "./flight-data.service";
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,7 @@ export class FlightService {
     throw new Error('Method not implemented.');
   }
   flights: any;
+  flightDataService!: FlightDataService
   flightsBookingCounter = 0;
   flightBookings: Array<any> = [];
   departing: any;
@@ -32,9 +34,18 @@ export class FlightService {
     return null;
   }
 
-  getDeparture(departure: any) {
+  getDepartureCode() {
     for (var i = 0; i < this.flights.length; i++) {
-      if (this.flights[i].departure === departure) {
+      if (this.flights[i].code === this.flightDataService.flight.flight.deptcode) {
+        return this.flights[i];
+      }
+    }
+    return null;
+  }
+
+  getArrivalCode() {
+    for (var i = 0; i < this.flights.length; i++) {
+      if (this.flights[i].code === this.flightDataService.flight.flight.arrcode) {
         return this.flights[i];
       }
     }

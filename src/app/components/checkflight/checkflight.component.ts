@@ -14,7 +14,8 @@ export class CheckflightComponent implements OnInit {
   public flightsdata: any;
 
   constructor(public flightService: FlightService, public flightDataService: FlightDataService) { 
-     this.flights = this.flightService.getAll();
+      this.flights = this.flightService.getAll();
+    //this.flights = this.flightService.getDepartureCode()
   }
 
   displayedColumns: string[] = ['id','name','logo', 'departure', 'totaltime', 'from','steps','price','class'];

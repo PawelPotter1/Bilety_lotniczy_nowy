@@ -33,5 +33,5 @@
       </p>
     </span>
     </mat-card>
-      <button routerLink="/seating" mat-raised-button color="primary"> To details</button><br>
+      <button *ngIf="flightDataService.flight.price>0" routerLink="/seating" mat-raised-button color="primary"> To details</button><br>
     </div>

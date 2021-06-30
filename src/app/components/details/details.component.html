@@ -4,8 +4,8 @@
     <h1></h1>
     <h3>
       <mat-icon>airline_seat_recline_extra</mat-icon>
-      <span *ngIf="!seats.length">Select seats.</span>
-      <span *ngIf="seats.length">Selected seats:</span>
+      <span *ngIf="!seats.length">Select seats.<small> {{numOfTickets}} - {{ticketType}}</small></span>
+      <span *ngIf="seats.length">All seats was selected</span>
     </h3>
     <section class="chipsSection">
       <p
